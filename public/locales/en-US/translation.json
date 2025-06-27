@@ -1,0 +1,11 @@
+{
+  "signIn": "Sign in to your account",
+  "emailAddress": "Email address",
+  "password": "Password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot password?",
+  "signInButton": "Sign in",
+  "notAMember": "Not a member?",
+  "startFreeTrial": "Start a 14 day free trial",
+  "orContinueWith": "Or continue with"
+}

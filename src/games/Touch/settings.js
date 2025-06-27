@@ -1,0 +1,5 @@
+export const SETTINGS = {
+  TRAFFIC_LIGHT_MARGIN: 30,
+  NUMBER_TRAFFIC_LIGHTS: 5,
+  DEBUG_MODE: true,
+};

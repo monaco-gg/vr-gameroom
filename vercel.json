@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/users/renew-coins",
+      "schedule": "0 12 * * *"
+    },
+    {
+      "path": "/api/orders/batch-cancel-expired",
+      "schedule": "0 12 * * *"
+    }
+  ]
+}

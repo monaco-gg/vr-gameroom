@@ -1,0 +1,90 @@
+.card {
+  perspective: 1000px;
+  width: 400px;
+  /* Ou o tamanho que você preferir */
+  /* height: 600px; */
+  /* Ou o tamanho que você preferir */
+}
+
+.card-inner {
+  width: 100%;
+  height: 68svh;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card-back,
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back {
+  /* Cor ou imagem do verso */
+  color: white;
+  /* Cor do texto do verso */
+}
+
+.card-front {
+  /* Cor ou imagem da frente */
+  color: white;
+  /* Cor do texto da frente */
+  transform: rotateY(180deg);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-inner:hover {
+  transform: rotateY(180deg);
+}
+
+.reflection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.5), transparent);
+  transform: translateY(100%);
+  animation: reflectionEffect 2.4s forwards;
+  z-index: 999;
+}
+
+@keyframes flipCard {
+  from {
+    transform: rotateY(0);
+  }
+
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes reflectionEffect {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+}
+
+
+.card-inner {
+  animation: flipCard 3s forwards;
+}

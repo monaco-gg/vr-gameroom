@@ -1,0 +1,26 @@
+.pong {
+  width: 120px;
+  height: 110px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  background:
+    linear-gradient(#fff 0 0) 0 0/8px 40px,
+    linear-gradient(#fff 0 0) 100% 0/8px 40px,
+    radial-gradient(farthest-side, #5B5BD6 100%, #0000) 0 5px/8px 8px content-box;
+  background-repeat: no-repeat;
+  animation: l3 3s infinite linear;
+}
+
+@keyframes l3 {
+  25% {
+    background-position: 0 0, 100% 100%, 100% calc(100% - 5px)
+  }
+
+  50% {
+    background-position: 0 100%, 100% 100%, 0 calc(100% - 5px)
+  }
+
+  75% {
+    background-position: 0 100%, 100% 0, 100% 5px
+  }
+}

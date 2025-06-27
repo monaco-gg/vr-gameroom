@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html,
+body {
+  color: rgb(var(--foreground-rgb));
+  overflow: hidden;
+  overscroll-behavior-y: contain !important;
+  background: #212121 !important;
+  /* Oculta barras de rolagem */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+  -webkit-text-size-adjust: 100%;
+  touch-action: pan-x pan-y;
+}
+
+input,
+select,
+textarea {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.ctn-controller {
+  box-shadow: inset 0 10px 0 #252525;
+  border-bottom-left-radius: 16%;
+  border-bottom-right-radius: 16%;
+}
+
+.txt-mnc {
+  font-weight: lighter;
+  color: #404040;
+  text-shadow:
+    1px 1px 2px #4b4b4b,
+    /* Sombra clara inferior direita */
+    -1px -1px 2px #000;
+  /* Sombra clara superior esquerda */
+}
+
+/* REF: https://neumorphism.io/#636363 */
+
+.btn-mnc-size-1 {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.btn-mnc-size-2 {
+  width: 120px !important;
+  height: 120px !important;
+}
+
+.btn-mnc {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  border-radius: 50%;
+  outline: none;
+  font-weight: bolder;
+  border: 4px #000 solid;
+  background: linear-gradient(145deg, #49474a, #3d3b3e);
+
+  box-shadow: inset 2px 2px 0px #7d7c7e,
+    inset -2px -2px 0px #1c1c1c;
+  color: #a6a6a6;
+}
+
+.btn-mnc::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: inherit;
+  border: solid 4px #2b2b2b;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  background: linear-gradient(145deg, #1e1e1e, #232323);
+  box-shadow: 19px 19px 43px #171717,
+    -19px -19px 43px #2b2b2b;
+}
+
+.btn-mnc:active {
+  background: linear-gradient(145deg, #3d3b3e, #49474a);
+
+  box-shadow: inset -2px -2px 0px #5e5e5e,
+    inset 2px 2px 0px #1c1c1c;
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
