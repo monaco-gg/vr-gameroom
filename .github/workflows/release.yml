@@ -38,7 +38,6 @@ jobs:
         id: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 
       - name: Get last tag
@@ -52,7 +51,7 @@ jobs:
           payload: |
             {
               "channel": "#tech-release-notes",
-              "text": "📦 Atualizações foram publicadas no *${{ github.repository }}*! ✨ \n - Última versão: *${{ env.LAST_TAG }}*.\n - Confira mais detalhes: <https://games.monaco.gg/changelog> \n - Github: <https://github.com/${{ github.repository }}/releases/tag/${{ env.LAST_TAG }}>"
+              "text": "📦 Atualizações foram publicadas no *${{ github.repository }}*! ✨ \n - Última versão: *${{ env.LAST_TAG }}*.\n - Confira mais detalhes: <https://vr.monaco.gg/changelog> \n - Github: <https://github.com/${{ github.repository }}/releases/tag/${{ env.LAST_TAG }} >"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
