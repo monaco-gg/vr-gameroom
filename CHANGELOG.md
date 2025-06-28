@@ -1,3 +1,10 @@
+# 1.0.0 (2025-06-28)
+
+
+### Features
+
+* disable orders and webhooks APIs, add Docker support for AWS deployment ([8acd3a2](https://github.com/monaco-gg/vr-gameroom/commit/8acd3a2dfaafd905424efeaba1aa664fabec184a))
+
 # [1.133.0](https://github.com/monaco-gg/monaco-gameroom/compare/v1.132.0...v1.133.0) (2025-03-07)
 
 
