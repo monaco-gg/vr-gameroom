@@ -48,3 +48,7 @@ next-env.d.ts
 # PWA Build - ServiceWorker
 /public/workbox-*
 /public/sw*
+
+# Settings files with credentials
+.github/workflows/settings.txt
+*.settings.txt
