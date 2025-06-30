@@ -1,16 +1,16 @@
 {
   "header": {
     "logo": "/vr-logo.png",
-    "title": "VR"
+    "title": "VR Benefícios"
   },  
 
   "branding": {
     "logo": "/vr-logo.png",
-    "title": "VR",
+    "title": "VR Benefícios",
     "catalog":
     {
       "logo": "/vr-logo.png",
-      "title": "VR"
+      "title": "VR Benefícios"
     }
   }  
 }
