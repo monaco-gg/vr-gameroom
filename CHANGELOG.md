@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/monaco-gg/vr-gameroom/compare/v1.0.0...v1.1.0) (2025-06-30)
+
+
+### Bug Fixes
+
+* restore all *_disabled* api files to match main branch ([80aba1a](https://github.com/monaco-gg/vr-gameroom/commit/80aba1acb8e3eb920b934506ec16c8e826fe147c))
+* update branding titles in texts.config.json to "VR Benefícios" ([b8ced20](https://github.com/monaco-gg/vr-gameroom/commit/b8ced20338526910c7d02404979b6c8d7d2ccc36))
+
+
+### Features
+
+* restore Ads Reward and Store logic from feature-custom-gr branch (clean, no secrets) ([b47eb55](https://github.com/monaco-gg/vr-gameroom/commit/b47eb554031f4d0ec839a6435e456cb8d88f0167))
+
 # 1.0.0 (2025-06-28)
 
 
