@@ -63,7 +63,8 @@ export default function FooterRoom({ session }) {
   const { handleLogEvent } = useFirebaseAnalytics();
 
   return (
-    <div className="fixed inset-x-0 bottom-0 shadow-lg bg-black bg-opacity-90 z-50 m-0 p-0">
+    <div className="fixed inset-x-0 bottom-0 shadow-lg bg-opacity-90 z-50 m-0 p-0
+    bg-menu ">
       <div className="flex justify-between p-5">
         {menuConfig
           .filter((item) => !item.private)
@@ -89,7 +90,7 @@ export default function FooterRoom({ session }) {
               router.push("/room/profile");
             }}
             className={`cursor-pointer mt-1 p-0 rounded-full ring-2 w-[36px] h-[36px] ${
-              pathname === "/room/profile" ? "ring-[#6D49FF]" : "ring-gray-500"
+              pathname === "/room/profile" ? "ring-menu-ring-selected" : "ring-menu-ring"              
             }`}
           >
             <Image

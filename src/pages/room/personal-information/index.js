@@ -195,7 +195,10 @@ export default function PersonalInformation({ callbackUrl }) {
                   </Link>
                   .
                 </p>
-                <Button type="submit" color="primary" size="lg" fullWidth>
+                <Button type="submit" 
+                        //color="primary" 
+                        className="bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
+                        size="lg" fullWidth>
                   Cadastrar
                 </Button>
               </div>

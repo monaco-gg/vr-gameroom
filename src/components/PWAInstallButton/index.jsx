@@ -82,8 +82,8 @@ const PWAInstallButton = () => {
       </p>
       <Button
         onPress={handleInstallClick}
-        color="primary"
-        className="rounded-full mt-4"
+        //color="primary"
+        className="rounded-full mt-4 bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
         disabled={!isIOS && !deferredPrompt}
       >
         {isIOS ? "Como instalar" : "Instalar App"}
@@ -129,7 +129,9 @@ const PWAInstallButton = () => {
             </p>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" className="rounded-full" onPress={onClose}>
+            <Button 
+                    //color="primary" 
+                    className="rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary" onPress={onClose}>
               Entendi
             </Button>
           </ModalFooter>

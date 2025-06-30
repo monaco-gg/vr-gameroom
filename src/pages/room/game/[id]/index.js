@@ -289,8 +289,8 @@ export default function Game({ ranking, featuredUser, isUserRanking }) {
               variant="solid"
               size="lg"
               fullWidth
-              className="mr-2"
-              color="primary"
+              className="mr-2 bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
+              //color="primary"
               isLoading={isLoading}
               onPress={handlePlayButton}
               disabled={isLoading}

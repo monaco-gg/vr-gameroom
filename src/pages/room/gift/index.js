@@ -112,7 +112,7 @@ export default function Gift({ isOngoing, targetDate }) {
         <div className="mt-8 w-full">
           <Button
             className="w-full p-3 rounded-lg text-gray-300 bg-gray-800 shadow-md hover:bg-gray-600 text-sm border border-gray-700"
-            onClick={() => {
+            onPress={() => {
               window.open(
                 "https://go.monaco.gg/terms-and-conditions",
                 "_blank"

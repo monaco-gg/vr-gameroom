@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { CountDownTimer } from "@components/CountDown/CountDownTimer";
 
 /**
  * Countdown component displays a countdown timer until a target date.
@@ -67,14 +68,14 @@ export default function Countdown({
     <>
       {!hideText && (
         <div className="m-4">
-          <p className="text-balance text-2xl md:text-xl text-center font-bold ">
+          <p className="text-balance text-2xl md:text-xl text-center font-bold text-event-primary-text">
             {targetDate
               ? isOngoing
                 ? "Evento em andamento"
                 : "Próximo evento"
               : "Nenhum evento disponível"}
           </p>
-          <p className="text-balance text-lg text-center text-neutral-300 ">
+          <p className="text-balance text-lg text-center text-event-secondary-text-80">
             {targetDate
               ? isOngoing
                 ? "Aproveite o evento antes que termine."
@@ -84,21 +85,8 @@ export default function Countdown({
         </div>
       )}
       <div>
-        <div className="flex text-center justify-center items-center space-x-2">
-          {Object.keys(timeLeft).length > 0 &&
-            Object.keys(timeLeft).map((interval) => (
-              <div
-                key={interval}
-                className="block text-lg font-semibold bg-[#1b133f] text-white rounded-lg p-2 shadow"
-                style={{ width: 110 }}
-              >
-                <p className="text-3xl">{timeLeft[interval]}</p>
-                <p className="text-xs font-light text-neutral-400">
-                  {timeLegend[interval]}
-                </p>
-              </div>
-            ))}
-        </div>
+      {/* TODO: MRC custom */}
+        <CountDownTimer timeLeft={timeLeft} timeLegend={timeLegend}></CountDownTimer>
       </div>
     </>
   );

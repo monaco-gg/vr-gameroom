@@ -188,10 +188,10 @@ export default function CommunityPage() {
           <Card className="p-4 mb-4 bg-danger-50">
             <p className="text-danger">{error}</p>
             <Button
-              color="primary"
+              //color="primary"
               variant="flat"
               onPress={handleRefresh}
-              className="mt-2 rounded-full"
+              className="mt-2 rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
               size="sm"
             >
               Tentar novamente

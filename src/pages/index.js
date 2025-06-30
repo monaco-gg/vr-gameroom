@@ -10,6 +10,9 @@ import Link from "next/link";
 import { useFirebaseAnalytics } from "@utils/firebase";
 import request from "@utils/api";
 import { useEffect, useState } from "react";
+import { BrandingInfo } from "@components/Branding/BrandingInfo";
+import { GradientEvent } from "@components/Event/GradientEvent";
+import { AppConfig } from '@utils/loaderConfig';
 
 // Dynamically import Lottie to avoid SSR issues
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
@@ -21,6 +24,11 @@ import RewardsList from "@components/RewardsList";
 export default function Index({ isOngoing, targetDate }) {
   const { handleLogEvent } = useFirebaseAnalytics();
   const [animation, setAnimation] = useState();
+
+  // TODO: MRC customize
+  const headerLogo = AppConfig.texts.header.logo || '/monaco.png'; 
+  const headerTitle = AppConfig.texts.header.title || 'Game Room'; 
+  const effetctClearScreenColor = AppConfig.styles.components.effect.clearScreen.color || "#1B133F"; 
 
   useEffect(() => {
     if (!animation) {
@@ -46,6 +54,7 @@ export default function Index({ isOngoing, targetDate }) {
   }, [animation]);
 
   useEffect(() => {
+
     if (window) {
       const canvas = document.querySelector("#galaxy");
       const stars = [];
@@ -71,7 +80,8 @@ export default function Index({ isOngoing, targetDate }) {
        * Clears the canvas screen.
        */
       const clearScreen = () => {
-        ctx.fillStyle = "#1B133F";
+        //TODO: MRC customize 
+        ctx.fillStyle = effetctClearScreenColor;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       };
 
@@ -124,14 +134,16 @@ export default function Index({ isOngoing, targetDate }) {
   return (
     <>
       <Head>
-        <title>Entre na competição - Monaco</title>
+        {/* TODO: MRC customize */}
+        <title>Entre na competição - {headerTitle}</title>
         <meta
           name="description"
           content="Participe da competição de jogos clássicos e concorra a prêmios!"
           key="desc"
         />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/monaco.png" />
+        {/* TODO: MRC customize */}
+        <link rel="icon" type="image/png" sizes="192x192" href={headerLogo} />
 
         <meta
           name="viewport"
@@ -148,25 +160,24 @@ export default function Index({ isOngoing, targetDate }) {
         <div className="mx-auto max-w-7xl px-6 pt-10 lg:px-6 lg:flex lg:flex-grow  lg:justify-end lg:items-end">
           <div className="relative  lg:h-[600] justify-center lg:ml-10">
             <div>
-              <div className="  items-center">
-                <Image src="/logo-text.png" width={48} height={48} alt="Logo" />
-                <p className="inline-block align-middle  font-archivo font-semibold text-inherit ml-6 -mt-10 text-center text-3xl">
-                  Game Room
-                </p>
+              <div className="items-center">
+                {/* TODO: MRC customize */}
+                <BrandingInfo></BrandingInfo>
               </div>
               <p className="mt-6 text-lg leading-8 text-white px-2">
                 Participe grátis da competição de games clássicos e concorra a
                 prêmios em dinheiro!
               </p>
               <div className="mt-4 flex items-center gap-x-6 relative z-50">
+                {/* TODO: MRC Customize */}
                 <Button
                   as={Link}
-                  color="success"
                   href="/auth/sign-in"
-                  onPress={() => handleLogEvent("go_to_sign_in_click")}
-                  onClick={() => handleLogEvent("go_to_sign_in_click")}
-                  className="rounded-full  px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-                >
+                  className="rounded-full px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
+                  bg-success 
+                  hover:bg-opacity-80 
+                  focus-visible:outline-success"                   
+                   >
                   Entrar na Competição
                 </Button>
               </div>
@@ -184,13 +195,14 @@ export default function Index({ isOngoing, targetDate }) {
             </div>
           </div>
           <div className="lg:max-w-xl pb-10 lg:pl-10">
-            <div className="py-8 px-4 animate-gradient bg-gradient-radial from-[#0a011849] via-[#6e4aff77] to-[#0a011864] rounded-3xl border-[#6d4aff] border-4">
-              <CountDown targetDate={targetDate} isOngoing={isOngoing} />
-              {/* <RewardsList hideText={false} isHome={true} /> */}
-              <div className="mt-10">
-                <GetStarted text="Começar a jogar grátis" />
-              </div>
-            </div>
+          {   /* TODO: MRC customize */}
+              <GradientEvent >
+                <CountDown targetDate={targetDate} isOngoing={isOngoing} />
+                {/* <RewardsList hideText={false} isHome={true} /> */}
+                <div className="mt-10">
+                  <GetStarted text="Começar a jogar grátis" />
+                </div>
+              </GradientEvent>
           </div>
         </div>
         <div className="pb-0">
