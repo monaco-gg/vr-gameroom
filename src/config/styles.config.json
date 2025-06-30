@@ -1,0 +1,51 @@
+{
+  "tailwind": {
+    "light": {},
+    "dark": {
+      "colors": {
+        
+        "background": "#111111",
+        "primary": "#06B4C3",
+        "secondary": "#5f19ed",
+        "error": "#F93154",
+        "success": "#00b74a",
+
+        "brandinginfo-primary-text": "#FFF",
+
+        "event-primary-text": "#06B4C3",
+        "event-secondary-text": "#fff",
+        "event-border": "#06B4C3",
+        "event-countdown": "#06B4C3",
+        "event-countdown-primary-text": "#FFF",
+        "event-countdown-secondary-text": "#000",
+
+        "menu": "#06B4C3",
+        "menu-text": "#fff",
+        "menu-text-selected": "#e7dd12",
+        "menu-ring": "#fff",
+        "menu-ring-selected": "#e7dd12",
+
+        "rewards": "#06B4C3"
+      }
+    }
+  },
+  "components": {
+    "effect": {
+      "clearScreen": {
+        "color": "#06B4C3"
+      }
+    },
+    "event": {
+      "borderColor": "#06B4C3",
+      "gradientColor": {
+        "from": "#06B4C349",
+        "via": "#3F2C6D77",
+        "to": "#0A0A0A64"
+      },
+      "countDownColor": {
+        "backgroundColor": "#06B4C3",
+        "textColor": "#000"
+      }
+    }
+  }
+}

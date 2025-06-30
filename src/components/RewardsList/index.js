@@ -102,7 +102,7 @@ export default function RewardsList({ hideText, isHome }) {
                   <div className="inline-block">{image.medal}</div>
                 </div>
                 <div className="text-center">
-                  <p className="bg-[#4b34b2] text-white text-xs font-medium px-2.5 py-0.5 rounded inline-block self-center">
+                  <p className="bg-rewards text-white text-xs font-medium px-2.5 py-0.5 rounded inline-block self-center">
                     {image.classification}
                   </p>
                   <p className="font-inter mt-2 text-sm text-center">

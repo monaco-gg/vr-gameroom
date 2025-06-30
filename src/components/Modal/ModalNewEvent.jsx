@@ -66,10 +66,10 @@ const ModalNewEvent = ({ isOpen, onClose, targetDate }) => {
         <div className="w-screen p-4 mt-4">
           <Button
             type="submit"
-            color="secondary"
+            //color="secondary"
+            className="bg-secondary hover:bg-opacity-80 focus-visible:outline-secondary"
             size="lg"
             fullWidth
-            onClick={onClose}
             onPress={onClose}
           >
             COMPETIR

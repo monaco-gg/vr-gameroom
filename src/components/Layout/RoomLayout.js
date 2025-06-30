@@ -8,6 +8,7 @@ import FooterRoom from "../FooterRoom";
 import HeaderRoom from "../HeaderRoom";
 import { useEffect } from "react";
 import GoogleAdsense from "@components/Ads/GoogleAdsense";
+import { AppConfig } from '@utils/loaderConfig';
 
 /**
  * Layout component for the room.
@@ -28,9 +29,18 @@ const RoomLayout = ({
   withFooter = true,
   isBack = false,
   children,
+
 }) => {
+
+  // const brandingLogo = AppConfig.texts.branding.logo || "/logo-text.png";
+  // const brandingTitle = AppConfig.texts.branding.title || "Game Room";
+  // const headerLogo = AppConfig.texts.header.logo || "/monaco.png";
+  // const headerTitle = AppConfig.texts.header.title || "Game Room";
+  const effetctClearScreenColor = AppConfig.styles.components.effect.clearScreen.color || "#1B133F"; 
+
   useEffect(() => {
-    if (window) {
+     
+  if (window) {
       const canvas = document.querySelector("#galaxy");
       const stars = [];
       const totalStars = 100;
@@ -55,7 +65,8 @@ const RoomLayout = ({
        * Clears the canvas screen.
        */
       const clearScreen = () => {
-        ctx.fillStyle = "#1B133F";
+        //TODO: MRC customize 
+        ctx.fillStyle = effetctClearScreenColor; 
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       };
 
@@ -103,7 +114,7 @@ const RoomLayout = ({
 
       loop();
     }
-  }, []);
+  }, [effetctClearScreenColor]);
 
   return (
     <>

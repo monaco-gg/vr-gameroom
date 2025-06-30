@@ -56,9 +56,8 @@ function CouponInput({ onApplyCoupon, onRemoveCoupon, appliedCoupon }) {
         variant="bordered"
       />
       <Button
-        color="success"
-        className="text-white w-full mt-2 mb-2"
-        onClick={handleApplyCoupon}
+        //color="success"
+        className="text-white w-full mt-2 mb-2 bg-success hover:bg-opacity-80 focus-visible:outline-success"
         onPress={handleApplyCoupon}
         disabled={couponCode.trim().length === 0}
       >
@@ -270,11 +269,10 @@ function PaymentForm({
       <Button
         type="button"
         startContent={<PixIcon />}
-        color="primary"
-        className="w-full mb-4"
+        //color="primary"
+        className="w-full mb-4 bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
         isLoading={isLoading}
         isDisabled={isLoading}
-        onClick={handleSubmit}
         onPress={handleSubmit}
       >
         {isLoading ? "Gerando código PIX" : "Pagar com PIX"}
@@ -342,9 +340,8 @@ export function PixForm({ order, showCountdown = true }) {
       <Button
         type="button"
         label="Código PIX"
-        className="w-full mb-4 mt-4"
-        color="primary"
-        onClick={handleCopy}
+        className="w-full mb-4 mt-4 bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
+        //color="primary"
         onPress={handleCopy}
       >
         Copiar Código PIX

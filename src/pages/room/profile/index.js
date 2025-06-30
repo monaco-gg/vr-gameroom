@@ -123,7 +123,7 @@ export default function Profile({
                   handleLogEvent("profile_footer_room_clicked");
                   router.push("/room/profile");
                 }}
-                className={`cursor-pointer mt-1 p-0 rounded-full ring-2 w-[100px] h-[100px] ring-[#6D49FF]`}
+                className={`cursor-pointer mt-2 p-0 rounded-full ring-2 w-[100px] h-[100px] ring-menu-text-selected {`}
               >
                 <Image
                   width={100}
@@ -264,23 +264,22 @@ export default function Profile({
               </div>
             </Switch>
 
-            <div className="flex mt-16">
+{/* TODO: MRC Revisar erro */}
+            {/* <div className="flex mt-16">
               <Button
-                className="text-white rounded-full"
-                color="primary"
+                className="text-white rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
+                //color="primary"
                 variant="flat"
-                onClick={handleMyOrdersClick}
                 onPress={handleMyOrdersClick}
                 fullWidth
               >
                 Meus Pedidos
               </Button>
-            </div>
+            </div> */}
             <div className="flex mt-8">
               <Button
-                className="text-white rounded-full"
-                color="success"
-                onClick={handleShare}
+                className="text-white rounded-full bg-success hover:bg-opacity-80 focus-visible:outline-success"
+                //color="success"
                 onPress={handleShare}
                 fullWidth
               >
@@ -290,8 +289,8 @@ export default function Profile({
             <div className="flex mt-8">
               <Button
                 type="submit"
-                color="primary"
-                className="rounded-full"
+                //color="primary"
+                className="rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
                 fullWidth
                 isLoading={loading}
               >
@@ -307,7 +306,6 @@ export default function Profile({
               color="danger"
               variant="bordered"
               fullWidth
-              onClick={() => signOut({ callbackUrl: "/auth/sign-in" })}
               onPress={() => signOut({ callbackUrl: "/auth/sign-in" })}
               className="rounded-full"
             >

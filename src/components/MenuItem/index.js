@@ -15,14 +15,14 @@ export const MenuItem = ({
   return (
     <div
       className={`flex flex-col items-center text-center ${
-        isActive ? "text-primary" : ""
+        isActive ? "text-menu-text-selected" : "text-menu-text"
       }`}
       onClick={() => {
         handleLogEvent(eventName);
         router.push(route);
       }}
     >
-      <div className="relative">
+      <div className="relative"> 
         {/* <div className={isNew ? "animate-pulse" : ""}>{icon}</div> */}
         <div>{icon}</div>
         {isNew && (

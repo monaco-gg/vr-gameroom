@@ -1,0 +1,16 @@
+{
+  "header": {
+    "logo": "/vr-logo.png",
+    "title": "VR"
+  },  
+
+  "branding": {
+    "logo": "/vr-logo.png",
+    "title": "VR",
+    "catalog":
+    {
+      "logo": "/vr-logo.png",
+      "title": "VR"
+    }
+  }  
+}

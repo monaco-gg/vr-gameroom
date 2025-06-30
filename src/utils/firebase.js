@@ -16,6 +16,7 @@ import { useSession } from "next-auth/react";
 
 // Load Firebase configuration from environment variables
 const firebaseConfig = {
+  disabled: process.env.NEXT_PUBLIC_FIREBASE_DISABLED === "true",
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
@@ -48,8 +49,18 @@ const initializeFirebase = async () => {
   }
 };
 
-// Call the initialization function
-initializeFirebase();
+// Check if all Firebase config variables are set
+const allConfigSet = Object.values(firebaseConfig).every(Boolean);
+
+// Call the initialization function only if all config variables are set
+if (allConfigSet) {
+  initializeFirebase();
+} else {
+  // Optional: Log a warning if Firebase is not initialized due to missing config
+  if (typeof window !== "undefined") { // Ensure console is available (client-side)
+      console.warn("Firebase initialization skipped: Not all configuration variables are set.");
+  }
+}
 
 /**
  * Custom hook to use Firebase Analytics.

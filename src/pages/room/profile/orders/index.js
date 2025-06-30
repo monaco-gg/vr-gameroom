@@ -8,6 +8,8 @@ import { useSession } from "next-auth/react";
 const OrdersContent = () => {
   const { orders, isLoading, error } = useOrders();
 
+  console.log("isLoading: " +isLoading + " error: " + error);
+
   if (isLoading) return <div>Carregando...</div>;
   if (error) return <div>Erro ao carregar pedidos: {error.message}</div>;
 
