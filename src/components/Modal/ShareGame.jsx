@@ -66,24 +66,21 @@ const ShareGame = ({ stepContent, shareURL, onClose }) => {
         <ModalFooter>
           <div className="flex flex-col w-full">
             <Button
-              color="primary"
-              className="w-full mb-4"
-              onClick={handleCopy}
+              //color="primary"
+              className="w-full mb-4 bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
               onPress={handleCopy}
             >
               Copiar link do jogo
             </Button>
             <Button
-              color="success"
-              className="w-full mb-4 text-white"
-              onClick={handleWhatsShare}
+              //color="success"
+              className="w-full mb-4 text-white bg-success hover:bg-opacity-80 focus-visible:outline-success"
               onPress={handleWhatsShare}
             >
               Enviar por WhatsApp
             </Button>
             <Button
               className="w-full mb-4"
-              onClick={() => handleOnClose()}
               onPress={() => handleOnClose()}
             >
               Fechar

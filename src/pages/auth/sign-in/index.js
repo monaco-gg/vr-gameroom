@@ -6,11 +6,19 @@ import Image from "next/legacy/image";
 import { GoogleIcon } from "@components/Icons/GoogleIcon";
 import { useFirebaseAnalytics } from "@utils/firebase";
 import PWAInstallButton from "@components/PWAInstallButton";
+import { AppConfig } from '@utils/loaderConfig';
 
 export default function SignIn({ referralCode, callbackUrl }) {
   const { handleLogEvent } = useFirebaseAnalytics();
   const [firstLogin, setFirstLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+
+  // TODO: MRC customize
+  const bradingLogo = AppConfig.texts.branding.logo || '/logo-text.png'; 
+  const bradingTitle = AppConfig.texts.branding.title || 'Game Room'; 
+  const headerLogo = AppConfig.texts.header.logo || '/monaco.png'; 
+  const headerTitle = AppConfig.texts.header.title || 'Game Room'; 
+  const effetctClearScreenColor = AppConfig.styles.components.effect.clearScreen.color || "#1B133F"; 
 
   useEffect(() => {
     const userAlreadyLogged = localStorage.getItem("userLogged");
@@ -30,6 +38,7 @@ export default function SignIn({ referralCode, callbackUrl }) {
   }, [referralCode]);
 
   useEffect(() => {
+
     if (window) {
       const canvas = document.querySelector("#galaxy");
       const stars = [];
@@ -55,7 +64,8 @@ export default function SignIn({ referralCode, callbackUrl }) {
        * Clears the canvas screen.
        */
       const clearScreen = () => {
-        ctx.fillStyle = "#1B133F";
+        //TODO: MRC customize 
+        ctx.fillStyle = effetctClearScreenColor; 
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       };
 
@@ -108,14 +118,14 @@ export default function SignIn({ referralCode, callbackUrl }) {
   return (
     <>
       <Head>
-        <title>Entre na competição - Monaco</title>
+        <title>Entre na competição - {headerTitle}</title>
         <meta
           name="description"
           content="Participe da competição de jogos clássicos e concorra a prêmios!"
           key="desc"
         />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/monaco.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href={headerLogo} />
 
         <meta
           name="viewport"
@@ -134,11 +144,11 @@ export default function SignIn({ referralCode, callbackUrl }) {
           <div className="sm:mx-auto sm:w-full sm:max-w-sm text-center">
             <Link href="/" rel="noopener noreferrer">
               <Image
-                src="/logo-text.png"
+                src={bradingLogo}
                 width={48}
                 height={48}
                 className="mx-auto"
-                alt="Super Monaco"
+                alt={bradingTitle}
               />
             </Link>
             {referralCode ? (

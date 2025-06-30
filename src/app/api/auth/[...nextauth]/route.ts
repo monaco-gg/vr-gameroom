@@ -2,9 +2,14 @@ import NextAuth, { AuthOptions, DefaultSession } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import request from '@utils/api';
 
-const useSecureCookies = process.env.NEXTAUTH_URL?.startsWith("https://") || false;
-const hostName = new URL(process.env.NEXTAUTH_URL as string).hostname;
-const rootDomain = process.env.ROOT_DOMAIN as string;
+const nextAuthUrl = process.env.NEXTAUTH_URL;
+if (!nextAuthUrl) {
+  throw new Error("NEXTAUTH_URL is not defined");
+}
+
+const useSecureCookies = nextAuthUrl.startsWith("https://");
+const hostName = new URL(nextAuthUrl).hostname;
+const rootDomain = process.env.ROOT_DOMAIN || hostName;
 
 type UserResponse = {
   data: {
@@ -41,8 +46,8 @@ async function registerUser(profile: any): Promise<Object> {
 
     return await request("/users", "POST", data, undefined, true, undefined, headers);
   } catch (error) {
-    console.error(error);
-    throw new Error("Failed to register user");
+    console.error("Failed to register user:", error);
+    throw new Error("User registration failed");
   }
 }
 
@@ -68,7 +73,7 @@ export const authOptions: AuthOptions = {
         sameSite: "lax",
         path: "/",
         secure: useSecureCookies,
-        domain: hostName === "localhost" ? hostName : "." + rootDomain,
+        domain: hostName === "localhost" ? undefined : "." + rootDomain,
       },
     },
   },
@@ -81,14 +86,16 @@ export const authOptions: AuthOptions = {
           token.id = user.data._id;
         }
       }
+
       if (account && account.access_token) {
         token.accessToken = account.access_token as string;
       }
+
       return token;
     },
+
     // Callback triggered when a session is created or updated.
     async session({ session, token }) {
-      // Explicitly check and assert types
       if (typeof token.accessToken === 'string') {
         session.accessToken = token.accessToken;
       }
@@ -109,3 +116,4 @@ export const authOptions: AuthOptions = {
 
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
+

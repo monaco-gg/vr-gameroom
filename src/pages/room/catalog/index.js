@@ -1,8 +1,6 @@
 import { getSession, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-
 import { games } from "@utils/data";
-
 import GameSlider from "@components/Game/GameSlider";
 import RoomLayout from "@components/Layout/RoomLayout";
 import ModalNotification from "@components/Modal/ModalNotification";
@@ -151,7 +149,7 @@ export async function getServerSideProps(context) {
 
     let unreadNotificationsOfRenewCoinsIds = [];
     let unreadNotificationsOfReferralCompletedIds = [];
-    let unreadNotificationsOfAcquiredCoinsIds = []; // Novo tipo de notificação
+    let unreadNotificationsOfAcquiredCoinsIds = [];
 
     for (const notification of getNotifications) {
       if (!notification.readAt) {
@@ -181,4 +179,6 @@ export async function getServerSideProps(context) {
       },
     };
   }
+
+  return { props: { host } };
 }

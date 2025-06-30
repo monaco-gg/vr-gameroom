@@ -85,10 +85,9 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
                     <Button
                       size="sm"
                       variant="bordered"
-                      color="primary"
+                      //color="primary"
                       onPress={() => openPixModal(order)}
-                      onClick={() => openPixModal(order)}
-                      className="text-white-900 gap-1 pl-1"
+                      className="text-white-900 gap-1 pl-1 bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
                       startContent={
                         <PixIcon
                           height={16}

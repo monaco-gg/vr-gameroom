@@ -23,21 +23,21 @@ const NoCommunitySplash = ({ onCreateCommunity, onOpenJoinModal }) => {
 
       <div className="flex flex-col gap-4">
         <Button
-          color="primary"
+          //color="primary"
           variant="solid"
           startContent={<PlusCircleIcon className="w-5 h-5" />}
           onPress={onCreateCommunity}
-          className="w-full"
+          className="w-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
         >
           Criar Comunidade
         </Button>
 
         <Button
-          color="secondary"
+          //color="secondary"
           variant="flat"
           startContent={<ArrowRightOnRectangleIcon className="w-5 h-5" />}
           onPress={onOpenJoinModal}
-          className="w-full"
+          className="w-full bg-secondary hover:bg-opacity-80 focus-visible:outline-secondary"
         >
           Entrar com Código
         </Button>

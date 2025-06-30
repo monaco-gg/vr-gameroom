@@ -12,6 +12,7 @@ import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { BackIcon } from "../Icons/BackIcon";
+import { AppConfig } from '@utils/loaderConfig';
 
 export const getUserInfo = async (email) => {
   return await request(`/users`, "GET", null, { email });
@@ -23,6 +24,10 @@ export const getRankingInfo = async (email) => {
 };
 
 export default function HeaderRoom({ isBack }) {
+
+  const brandingCatalogLogo = AppConfig.texts.branding.catalog.logo || "/logo-text.png";
+  const brandingCatalogTitle = AppConfig.texts.branding.catalog.title || "Game Room";
+  
   const router = useRouter();
   const { globalState } = useContext(GlobalContext);
 
@@ -58,6 +63,7 @@ export default function HeaderRoom({ isBack }) {
   };
 
   return (
+    //TODO: MRC caso queira definir cor o cabeçalo do catalogo é aqui!
     <Navbar className="bg-transparent">
       <NavbarContent>
         <NavbarBrand>
@@ -69,9 +75,10 @@ export default function HeaderRoom({ isBack }) {
             </>
           ) : (
             <div className="flex">
-              <Image src="/logo.png" width={24} height={24} alt={"Logo"} />
+              {/* MRC: Marcio Lima */}
+              <Image src={brandingCatalogLogo} width={30} height={30} alt={"Logo"} />
               <p className="font-archivo font-semibold text-inherit ml-2 self-center">
-                MONACO
+                {brandingCatalogTitle}
               </p>
             </div>
           )}

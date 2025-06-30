@@ -173,10 +173,10 @@ export default function JoinCommunityPage() {
                   </p>
                   <div className="flex flex-col gap-3">
                     <Button
-                      color="primary"
+                      //color="primary"
                       onPress={handleLeaveCommunityAndJoin}
                       isLoading={joining}
-                      className="w-full rounded-full"
+                      className="w-full rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
                     >
                       {joining ? (
                         <Spinner size="sm" color="white" />
@@ -201,9 +201,9 @@ export default function JoinCommunityPage() {
                       : "O convite pode ter expirado ou ser inválido."}
                   </p>
                   <Button
-                    color="primary"
+                    //color="primary"
                     onPress={() => router.push("/room/community")}
-                    className="w-full rounded-full"
+                    className="w-full rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
                   >
                     Ir para Comunidades
                   </Button>
@@ -222,10 +222,10 @@ export default function JoinCommunityPage() {
               </p>
               <div className="flex flex-col gap-3">
                 <Button
-                  color="primary"
+                  //color="primary"
                   onPress={handleLeaveCommunityAndJoin}
                   isLoading={joining}
-                  className="w-full rounded-full"
+                  className="w-full rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
                 >
                   {joining ? (
                     <Spinner size="sm" color="white" />
@@ -252,10 +252,10 @@ export default function JoinCommunityPage() {
                 competir no ranking com outros jogadores!
               </p>
               <Button
-                color="primary"
+                //color="primary"
                 isLoading={joining}
                 onPress={handleJoinCommunity}
-                className="w-full mb-4 rounded-full"
+                className="w-full mb-4 rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
               >
                 {joining ? (
                   <Spinner size="sm" color="white" />

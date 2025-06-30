@@ -209,10 +209,10 @@ const CommunityInvite = ({ community }) => {
             />
             <Button
               isIconOnly
-              color="primary"
+              //color="primary"
               variant="flat"
               onPress={handleCopyCode}
-              className="ml-2 h-14"
+              className="ml-2 h-14 bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
             >
               <ClipboardDocumentIcon className="w-5 h-5" />
             </Button>
@@ -233,11 +233,11 @@ const CommunityInvite = ({ community }) => {
           </div>
 
           <Button
-            color="success"
+            //color="success"
             variant="flat"
             startContent={<ShareIcon className="w-5 h-5" />}
             onPress={handleShareWhatsApp}
-            className="w-full rounded-full mb-3"
+            className="w-full rounded-full mb-3 bg-success hover:bg-opacity-80 focus-visible:outline-success"
           >
             Compartilhar no WhatsApp {shareCount > 0 ? `(${shareCount})` : ""}
           </Button>
@@ -249,11 +249,11 @@ const CommunityInvite = ({ community }) => {
       ) : (
         <>
           <Button
-            color="primary"
+            //color="primary"
             variant="solid"
             onPress={handleGenerateInvite}
             isLoading={loading}
-            className="w-full rounded-full"
+            className="w-full rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
           >
             {loading ? <Spinner size="sm" color="white" /> : "Obter Convite"}
           </Button>

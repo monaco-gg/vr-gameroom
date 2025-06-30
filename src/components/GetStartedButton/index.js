@@ -9,15 +9,17 @@ export default function GetStarted({ text }) {
   return (
     <>
       <div className="flex justify-center items-center mt-0">
+        {/* TODO: MRC customização de cores */}
         <Button
           as={Link}
           variant="solid"
           size="lg"
           radius="md"
-          color="success"
-          className="font-bold h-14 rounded-full"
+          className="font-bold h-14 rounded-full shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
+                     bg-success 
+                     hover:bg-opacity-80 
+                     focus-visible:outline-success"
           startContent={<GameboyIcon />}
-          onClick={() => handleLogEvent("get_started_click")}
           onPress={() => handleLogEvent("get_started_click")}
           href="/auth/sign-in"
         >

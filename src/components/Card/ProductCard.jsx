@@ -35,8 +35,8 @@ function ProductCard({ product, couponCode }) {
         />
         {hasDiscount && (
           <Chip
-            color="primary"
-            className="absolute top-2 right-2 z-10"
+            //color="primary"
+            className="absolute top-2 right-2 z-10 bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
             size="md"
           >
             {discountPercentage}% OFF

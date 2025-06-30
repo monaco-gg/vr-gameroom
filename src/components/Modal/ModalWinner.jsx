@@ -218,10 +218,10 @@ const ModalWinner = ({ isOpen, onClose }) => {
         <div className="absolute bottom-4 left-0 w-screen p-4">
           <Button
             type="submit"
-            color="secondary"
+            //color="secondary"
+            className="bg-secondary hover:bg-opacity-80 focus-visible:outline-secondary"
             size="lg"
             fullWidth
-            onClick={onClose}
             onPress={onClose}
           >
             VOLTAR

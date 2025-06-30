@@ -30,14 +30,16 @@ const RankingListItem = ({
   useMedal,
   type = RANKING_TYPE.TICKETS,
 }) => {
+  
+  //TODO: MRC Remover
   const featuredItemStyle = featured
     ? { backgroundColor: "#372779", borderTop: "1px solid #3D3E82" }
     : {};
 
   return (
     <div
-      className="flex items-center space-x-4 py-2 px-4 rounded-md"
-      style={featuredItemStyle}
+      className="flex items-center space-x-4 py-2 px-4 rounded-md bg-primary bg-opacity-80 " 
+      //style={featuredItemStyle}
     >
       {useMedal && position !== 0 && position <= 3 ? (
         <Image

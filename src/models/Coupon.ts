@@ -51,7 +51,6 @@ const CouponSchema: Schema<ICoupon> = new Schema({
   },
 });
 
-CouponSchema.index({ code: 1 });
 CouponSchema.index({ isActive: 1, expirationDate: 1 });
 
 CouponSchema.pre<ICoupon>("save", function (next) {

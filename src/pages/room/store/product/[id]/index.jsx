@@ -95,8 +95,8 @@ export default function Product({ productData, initialCouponCode }) {
               />
               {discountPercentage > 0 && (
                 <Chip
-                  color="primary"
-                  className="absolute top-2 right-2 z-10"
+                  //color="primary"
+                  className="absolute top-2 right-2 z-10 bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
                   size="md"
                 >
                   {discountPercentage}% OFF
@@ -126,7 +126,8 @@ export default function Product({ productData, initialCouponCode }) {
             </div>
             <div className="absolute bottom-28 right-3 left-3">
               <Button
-                color="primary"
+                //color="primary"
+                className="bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
                 fullWidth
                 onPress={() => setOpenPayment(true)}
               >

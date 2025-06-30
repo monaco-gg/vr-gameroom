@@ -1,9 +1,44 @@
-# 1.0.0 (2025-06-28)
+# [1.5.0](https://github.com/monaco-gg/custom-gameroom/compare/v1.4.0...v1.5.0) (2025-06-20)
 
 
 ### Features
 
-* disable orders and webhooks APIs, add Docker support for AWS deployment ([8acd3a2](https://github.com/monaco-gg/vr-gameroom/commit/8acd3a2dfaafd905424efeaba1aa664fabec184a))
+* Refactor button styles and update configurations ([e1c692e](https://github.com/monaco-gg/custom-gameroom/commit/e1c692e5bdb6864fbcb0296dd8bf9cf6642c6833))
+
+# [1.4.0](https://github.com/monaco-gg/custom-gameroom/compare/v1.3.0...v1.4.0) (2025-06-08)
+
+
+### Features
+
+* Configure custom styles and connect the login using monaco-localhost properties. ([226c7f7](https://github.com/monaco-gg/custom-gameroom/commit/226c7f794a59aa8c4b40bfb4d8fe79afa98c9b84))
+
+# [1.3.0](https://github.com/monaco-gg/custom-gameroom/compare/v1.2.0...v1.3.0) (2025-05-25)
+
+
+### Features
+
+* Add custom css style ([d7807d6](https://github.com/monaco-gg/custom-gameroom/commit/d7807d6270c81e8c2d3a73297d775557e3d58849))
+
+# [1.2.0](https://github.com/monaco-gg/custom-gameroom/compare/v1.1.0...v1.2.0) (2025-05-24)
+
+
+### Features
+
+* Add auth by pass mode, disabled firebase when all variables not charged ([c470fb3](https://github.com/monaco-gg/custom-gameroom/commit/c470fb3ff7108975f4c40dcc463c5ed1253cf77a))
+
+# [1.1.0](https://github.com/monaco-gg/custom-gameroom/compare/v1.0.0...v1.1.0) (2025-05-23)
+
+
+### Features
+
+* Update README.md ([dd65823](https://github.com/monaco-gg/custom-gameroom/commit/dd65823abdabbc810fa3b122d6eec15b2804b2ef))
+
+# 1.0.0 (2025-05-23)
+
+
+### Features
+
+* New project ([fd982f0](https://github.com/monaco-gg/custom-gameroom/commit/fd982f0f005ce395dfb8b9c50f2dd2c3d21e4ab4))
 
 # [1.133.0](https://github.com/monaco-gg/monaco-gameroom/compare/v1.132.0...v1.133.0) (2025-03-07)
 

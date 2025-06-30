@@ -73,11 +73,11 @@ const JoinCommunityModal = ({ isOpen, onClose, onJoin }) => {
               Cancelar
             </Button>
             <Button
-              color="primary"
+              //color="primary"
               type="submit"
               isLoading={isLoading}
               isDisabled={!code.trim()}
-              className="rounded-full"
+              className="rounded-full bg-primary hover:bg-opacity-80 focus-visible:outline-primary"
             >
               Entrar
             </Button>
