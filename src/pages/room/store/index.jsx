@@ -22,13 +22,20 @@ export default function Store({ initialProducts, initialCouponCode }) {
   // Verifica se os anúncios estão habilitados
   const isGoogleAdsEnabled = (() => {
     const adDisabled = process.env.NEXT_PUBLIC_GOOGLE_AD_DISABLED;
-    
     if (adDisabled === undefined || adDisabled === null) {
-      console.warn('⚠️ NEXT_PUBLIC_GOOGLE_AD_DISABLED não está definida. Anúncios recompensados habilitados.');
+      console.log('⚠️ NEXT_PUBLIC_GOOGLE_AD_DISABLED não está definida. O componente de vídeo NÃO será exibido.');
+      return false;
+    }
+    if (adDisabled === "true") {
+      console.log('🚫 NEXT_PUBLIC_GOOGLE_AD_DISABLED=true. O componente de vídeo NÃO será exibido.');
+      return false;
+    }
+    if (adDisabled === "false") {
+      console.log('✅ NEXT_PUBLIC_GOOGLE_AD_DISABLED=false. O componente de vídeo SERÁ exibido.');
       return true;
     }
-    
-    return adDisabled !== "true";
+    console.log(`⚠️ NEXT_PUBLIC_GOOGLE_AD_DISABLED com valor inesperado ('${adDisabled}'). O componente de vídeo NÃO será exibido.`);
+    return false;
   })();
    
   const handleReward = async () => {
