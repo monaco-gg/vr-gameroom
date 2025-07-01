@@ -68,6 +68,15 @@ export default function Store({ initialProducts, initialCouponCode }) {
     }
   };
 
+  const handleClose = (errorOccurred = false) => {
+    setOpen(false);
+    if (errorOccurred) {
+      console.log("[AdReward] Ocorreu um erro ao exibir o anúncio recompensado.");
+    } else {
+      console.log("[AdReward] Modal fechado normalmente.");
+    }
+  };
+
   useEffect(() => {
     if (couponCode) {
       validateCoupon(couponCode);
@@ -170,14 +179,8 @@ export default function Store({ initialProducts, initialCouponCode }) {
 
                 <AdRewardFullScreeen
                   isOpen={open}
-                  onClose={() => {
-                    console.log("🚪 Modal fechado");
-                    setOpen(false);
-                  }}
-                  onReward={() => {
-                    console.log("🎁 Recompensa recebida, chamando handleReward...");
-                    handleReward();
-                  }}                
+                  onClose={handleClose}
+                  onReward={handleReward}
                 />
               </Card>
             </div>
