@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 type Props = {
   isOpen: boolean;
-  onClose: () => void;
+  onClose: (isError: boolean) => void;
   onReward: (payload: googletag.RewardedPayload) => void;
 };
 
@@ -25,6 +25,7 @@ declare global {
 export default function AdRewardedFullScreen({ isOpen, onClose, onReward }: Props) {
   
   const slotRef = useRef<googletag.Slot | null>(null);
+  const closedRef = useRef(false);
   
   useEffect(() => {
     console.log("🔍 AdRewardedFullScreen useEffect triggered, isOpen:", isOpen);
@@ -75,7 +76,7 @@ export default function AdRewardedFullScreen({ isOpen, onClose, onReward }: Prop
 
         if (!rewardedSlot) {
           console.error("❌ Rewarded ad não suportado ou erro na definição do slot");
-          onClose();
+          onClose(true);
           return;
         }
 
@@ -93,11 +94,18 @@ export default function AdRewardedFullScreen({ isOpen, onClose, onReward }: Prop
         window.googletag.pubads().addEventListener("rewardedSlotGranted", (event: any) => {
           console.log("🎉 Recompensa concedida:", event.payload);
           onReward(event.payload);
+          if (!closedRef.current) {
+            closedRef.current = true;
+            onClose(false);
+          }
         });
 
         window.googletag.pubads().addEventListener("rewardedSlotClosed", () => {
           console.log("🛑 Anúncio fechado.");
-          onClose(); // ✅ FECHA AUTOMATICAMENTE
+          if (!closedRef.current) {
+            closedRef.current = true;
+            onClose(false);
+          }
         });
 
         console.log("🚀 Habilitando serviços e exibindo anúncio...");
@@ -109,7 +117,7 @@ export default function AdRewardedFullScreen({ isOpen, onClose, onReward }: Prop
     // Espera o script GPT carregar
     console.log("⏳ Aguardando API GPT ficar pronta...");
     let attempts = 0;
-    const maxAttempts = 30; // 5 segundos máximo
+    const maxAttempts = 30; // 3 segundos máximo
     
     const interval = setInterval(() => {
       attempts++;
@@ -120,9 +128,9 @@ export default function AdRewardedFullScreen({ isOpen, onClose, onReward }: Prop
         clearInterval(interval);
         initRewardedAd();
       } else if (attempts >= maxAttempts) {
-        console.error("❌ Timeout: API GPT não ficou pronta em 5 segundos");
+        console.error("❌ Timeout: API GPT não ficou pronta em 3 segundos");
         clearInterval(interval);
-        onClose();
+        onClose(true);
       }
     }, 100);
 
