@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/monaco-gg/vr-gameroom/compare/v1.1.1...v1.1.2) (2025-07-01)
+
+
+### Bug Fixes
+
+* corrige mensagem de erro inconsistente na variável de ambiente NEXT_PUBLIC_GOOGLE_AD_UNIT_PATH ([7d6ab52](https://github.com/monaco-gg/vr-gameroom/commit/7d6ab52090b3a3150f67c5624d2d8b1052747e34))
+
 ## [1.1.1](https://github.com/monaco-gg/vr-gameroom/compare/v1.1.0...v1.1.1) (2025-07-01)
 
 
