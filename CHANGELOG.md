@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/monaco-gg/vr-gameroom/compare/v1.1.0...v1.1.1) (2025-07-01)
+
+
+### Bug Fixes
+
+* **firebase:** standardize usage of FIREBASE_PRIVATE_KEY in all API endpoints ([75106fe](https://github.com/monaco-gg/vr-gameroom/commit/75106feadb489b67d1be064c3a4ce1a7616f1510))
+
 # [1.1.0](https://github.com/monaco-gg/vr-gameroom/compare/v1.0.0...v1.1.0) (2025-06-30)
 
 
