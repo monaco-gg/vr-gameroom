@@ -37,11 +37,21 @@ We follow the GitHub Flow for managing our development process. Here's a step-by
 
 5. **Commit Changes:**
 
-   - Use `npm run commit` to commit your changes using Commitizen:
+   - Use `npm run commit` to commit your changes using Commitizen with Gitmoji:
      ```bash
      npm run commit
      ```
-     This command will guide you through creating a conventional commit message.
+     This command will guide you through creating a gitmoji + conventional commit message following the pattern:
+     ```
+     ✨ feat: add new user login feature
+     🐛 fix: resolve issue with user login
+     📝 docs: update README with new instructions
+     🎨 style: improve code formatting
+     ♻️ refactor: restructure authentication logic
+     ⚡️ perf: optimize database queries
+     ✅ test: add unit tests for login function
+     🔧 chore: update dependencies
+     ```
 
 6. **Push Changes:**
 
@@ -87,8 +97,14 @@ We use `semantic-release` to automate the release process. Here's how it works:
 
    Examples:
 
-   - `feat: add new user login feature`
-   - `fix: resolve issue with user login`
+   - `✨ feat: add new user login feature`
+   - `🐛 fix: resolve issue with user login`
+   - `📝 docs: update API documentation`
+   - `🎨 style: improve component styling`
+   - `♻️ refactor: restructure authentication logic`
+   - `⚡️ perf: optimize database queries`
+   - `✅ test: add unit tests for login function`
+   - `🔧 chore: update dependencies`
 
 2. **Merging Pull Requests:**
 

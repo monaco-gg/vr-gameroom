@@ -1,0 +1,236 @@
+{
+  "config": {
+    "cz-conventional-changelog": {
+      "types": [
+        {
+          "value": "feat",
+          "name": "✨ feat:     A new feature",
+          "emoji": "✨"
+        },
+        {
+          "value": "fix",
+          "name": "🐛 fix:      A bug fix",
+          "emoji": "🐛"
+        },
+        {
+          "value": "docs",
+          "name": "📝 docs:     Documentation only changes",
+          "emoji": "📝"
+        },
+        {
+          "value": "style",
+          "name": "🎨 style:    Changes that do not affect the meaning of the code",
+          "emoji": "🎨"
+        },
+        {
+          "value": "refactor",
+          "name": "♻️ refactor: A code change that neither fixes a bug nor adds a feature",
+          "emoji": "♻️"
+        },
+        {
+          "value": "perf",
+          "name": "⚡️ perf:     A code change that improves performance",
+          "emoji": "⚡️"
+        },
+        {
+          "value": "test",
+          "name": "✅ test:     Adding missing tests or correcting existing tests",
+          "emoji": "✅"
+        },
+        {
+          "value": "chore",
+          "name": "🔧 chore:    Changes to the build process or auxiliary tools",
+          "emoji": "🔧"
+        },
+        {
+          "value": "deploy",
+          "name": "🚀 deploy:   Deploying stuff",
+          "emoji": "🚀"
+        },
+        {
+          "value": "remove",
+          "name": "🔥 remove:   Removing code or files",
+          "emoji": "🔥"
+        },
+        {
+          "value": "wip",
+          "name": "🚧 wip:      Work in progress",
+          "emoji": "🚧"
+        },
+        {
+          "value": "security",
+          "name": "🔒 security: Fixing security issues",
+          "emoji": "🔒"
+        },
+        {
+          "value": "upgrade",
+          "name": "⬆️ upgrade:  Upgrading dependencies",
+          "emoji": "⬆️"
+        },
+        {
+          "value": "downgrade",
+          "name": "⬇️ downgrade: Downgrading dependencies",
+          "emoji": "⬇️"
+        },
+        {
+          "value": "build",
+          "name": "📦 build:    Adding or updating compiled files or packages",
+          "emoji": "📦"
+        },
+        {
+          "value": "api",
+          "name": "👽️ api:      Updating code due to external API changes",
+          "emoji": "👽️"
+        },
+        {
+          "value": "init",
+          "name": "🎉 init:     Initial commit",
+          "emoji": "🎉"
+        },
+        {
+          "value": "breaking",
+          "name": "💥 breaking: Introducing breaking changes",
+          "emoji": "💥"
+        },
+        {
+          "value": "assets",
+          "name": "🍱 assets:   Adding or updating assets",
+          "emoji": "🍱"
+        },
+        {
+          "value": "accessibility",
+          "name": "♿️ accessibility: Improving accessibility",
+          "emoji": "♿️"
+        },
+        {
+          "value": "comments",
+          "name": "💡 comments: Adding or updating comments in source code",
+          "emoji": "💡"
+        },
+        {
+          "value": "texts",
+          "name": "💬 texts:    Adding or updating text and literals",
+          "emoji": "💬"
+        },
+        {
+          "value": "database",
+          "name": "🗃️ database: Performing database related changes",
+          "emoji": "🗃️"
+        },
+        {
+          "value": "logs",
+          "name": "🔊 logs:     Adding or updating logs",
+          "emoji": "🔊"
+        },
+        {
+          "value": "remove-logs",
+          "name": "🔇 remove-logs: Removing logs",
+          "emoji": "🔇"
+        },
+        {
+          "value": "contributors",
+          "name": "👥 contributors: Adding or updating contributor(s)",
+          "emoji": "👥"
+        },
+        {
+          "value": "ux",
+          "name": "🚸 ux:       Improving user experience/usability",
+          "emoji": "🚸"
+        },
+        {
+          "value": "architecture",
+          "name": "🏗️ architecture: Making architectural changes",
+          "emoji": "🏗️"
+        },
+        {
+          "value": "iphone",
+          "name": "📱 iphone:   Working on responsive design",
+          "emoji": "📱"
+        },
+        {
+          "value": "egg",
+          "name": "🥚 egg:      Adding or updating an easter egg",
+          "emoji": "🥚"
+        },
+        {
+          "value": "ignore",
+          "name": "🙈 ignore:   Adding or updating a .gitignore file",
+          "emoji": "🙈"
+        },
+        {
+          "value": "snapshots",
+          "name": "📸 snapshots: Adding or updating snapshots",
+          "emoji": "📸"
+        },
+        {
+          "value": "experiment",
+          "name": "⚗️ experiment: Adding or updating experiments",
+          "emoji": "⚗️"
+        },
+        {
+          "value": "seo",
+          "name": "🔍️ seo:      Improving SEO",
+          "emoji": "🔍️"
+        },
+        {
+          "value": "types",
+          "name": "🏷️ types:    Adding or updating types",
+          "emoji": "🏷️"
+        },
+        {
+          "value": "seed",
+          "name": "🌱 seed:     Adding or updating seed files",
+          "emoji": "🌱"
+        },
+        {
+          "value": "flags",
+          "name": "🚩 flags:    Adding, updating, or removing feature flags",
+          "emoji": "🚩"
+        },
+        {
+          "value": "catch",
+          "name": "🥅 catch:    Catching errors",
+          "emoji": "🥅"
+        },
+        {
+          "value": "animation",
+          "name": "💫 animation: Adding or updating animations and transitions",
+          "emoji": "💫"
+        },
+        {
+          "value": "cleanup",
+          "name": "🗑️ cleanup:  Deprecating code that needs to be cleaned up",
+          "emoji": "🗑️"
+        }
+      ],
+      "scopes": [
+        "api",
+        "auth",
+        "components",
+        "config",
+        "database",
+        "docs",
+        "games",
+        "hooks",
+        "layout",
+        "models",
+        "pages",
+        "public",
+        "scripts",
+        "styles",
+        "types",
+        "utils"
+      ],
+      "skipQuestions": [
+        "body",
+        "footer"
+      ],
+      "subjectMaxLength": 50,
+      "subjectMinLength": 1,
+      "ticketNumberPrefix": "TICKET-",
+      "ticketNumberRegExp": "\\d{1,5}",
+      "typePrefix": "",
+      "typeSuffix": ""
+    }
+  }
+} 
