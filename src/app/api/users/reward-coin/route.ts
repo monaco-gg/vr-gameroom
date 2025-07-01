@@ -6,7 +6,7 @@ import admin from "firebase-admin";
 
 const firebaseConfig = {
   disabled: process.env.NEXT_PUBLIC_FIREBASE_DISABLED === "true",
-  privateKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  privateKey: process.env.FIREBASE_PRIVATE_KEY,
 };
 
 // Verifica se o Firebase está desativado

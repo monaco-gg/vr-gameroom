@@ -3,33 +3,23 @@ import dbConnect from "@helpers/dbConnect";
 import User from "@models/User";
 import admin from "firebase-admin";
 
-const firebaseConfig = {
-  disabled: process.env.NEXT_PUBLIC_FIREBASE_DISABLED === "true",
-  privateKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-};
-
-if (!firebaseConfig.disabled) {
-  // Firebase initialization
-  if (!firebaseConfig.privateKey) {
-    throw new Error(
-      "FIREBASE_PRIVATE_KEY is not defined in the environment variables"
-    );
-  }
-
-  if (!admin.apps.length) {
-    admin.initializeApp({
-      credential: admin.credential.cert({
-        projectId: "gameroom-416719",
-        clientEmail:
-          "firebase-adminsdk-6ak35@gameroom-416719.iam.gserviceaccount.com",
-        privateKey: firebaseConfig.privateKey.replace(/\\n/g, "\n"),
-      }),
-    });
-  }
-} else {
-  console.warn(
-    "Firebase notifications are disabled. Set NEXT_PUBLIC_FIREBASE_DISABLED to 'false' to enable."
+// Firebase initialization
+const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
+if (!firebasePrivateKey) {
+  throw new Error(
+    "FIREBASE_PRIVATE_KEY is not defined in the environment variables"
   );
+}
+
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert({
+      projectId: "gameroom-416719",
+      clientEmail:
+        "firebase-adminsdk-6ak35@gameroom-416719.iam.gserviceaccount.com",
+      privateKey: firebasePrivateKey.replace(/\\n/g, "\n"),
+    }),
+  });
 }
 
 async function sendNotification(user: any, notificationData: any) {
