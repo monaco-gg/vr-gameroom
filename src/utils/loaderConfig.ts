@@ -10,6 +10,7 @@ interface StylesConfig {
       };
     };
     event: {
+      borderColor?: string;
       gradientColor: {
         from: string;
         via: string;
