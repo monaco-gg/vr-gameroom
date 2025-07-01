@@ -42,7 +42,7 @@ export default function AdRewardedFullScreen({ isOpen, onClose, onReward }: Prop
     
     if (!adUnitPath || adUnitPath.trim() === "") {
       console.error("❌ AdUnitPath não está definido. Verifique a variável de ambiente NEXT_PUBLIC_GOOGLE_AD_UNIT_PATH");
-      throw new Error("AdUnitPath não está definido. Verifique a variável de ambiente NEXT_PUBLIC_AD_UNIT_PATH");
+      throw new Error("AdUnitPath não está definido. Verifique a variável de ambiente NEXT_PUBLIC_GOOGLE_AD_UNIT_PATH");
     }
     else{
       console.log("✅ AdUnitPath está definido:", adUnitPath);
