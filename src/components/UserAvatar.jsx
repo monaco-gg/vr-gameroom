@@ -13,16 +13,20 @@ const UserAvatar = ({
   if (!user || !user.name) {
     return null;
   }
-
+  
+  
   // Se a imagem falhou ao carregar ou não existe, mostra a primeira letra
   if (imageError || !user.image) {
     const firstLetter = user.name.charAt(0).toUpperCase();
-    const sizeClass = size <= 24 ? 'text-xs' : size <= 32 ? 'text-sm' : size <= 48 ? 'text-base' : 'text-lg';
     
     return (
       <div 
-        className={`bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold ${sizeClass} ${fallbackClassName}`}
-        style={{ width: size, height: size }}
+        className={`bg-avatar-fallback rounded-full flex items-center justify-center text-avatar-fallback-text font-bold ${fallbackClassName}`}
+        style={{ 
+          width: size, 
+          height: size,
+          fontSize: `${size * 0.4}px` // Texto se adapta ao tamanho do elemento
+        }}
       >
         {firstLetter}
       </div>

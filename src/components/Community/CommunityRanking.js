@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Avatar, Chip, Spinner, Tabs, Tab } from "@nextui-org/react";
+import { Card, Chip, Spinner, Tabs, Tab } from "@nextui-org/react";
 import { TrophyIcon } from "@heroicons/react/24/solid";
 import request from "@utils/api";
 import moment from "moment";

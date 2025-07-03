@@ -1,7 +1,8 @@
 // components/Community/CommunityDetails.js
 import React from "react";
-import { Card, Button, Avatar, Tooltip, Badge } from "@nextui-org/react";
+import { Card, Button, Tooltip, Badge } from "@nextui-org/react";
 import { UsersIcon } from "@heroicons/react/24/outline";
+import UserAvatar from "@components/UserAvatar";
 
 const CommunityDetails = ({ community, onLeaveCommunity }) => {
   return (
@@ -23,14 +24,15 @@ const CommunityDetails = ({ community, onLeaveCommunity }) => {
         </p>
         <div className="flex flex-wrap gap-2 mb-4">
           {community.members.map((member) => (
-            <Avatar
+            <UserAvatar
               key={member._id}
-              showFallback
-              src={member.photo}
-              alt="Avatar"
-              fallback={
-                <p className="text-2xl">{member.nickname[0].toUpperCase()}</p>
-              }
+              user={{
+                name: member.nickname || member.name,
+                image: member.photo
+              }}
+              size={40}
+              className="rounded-full"
+              fallbackClassName="rounded-full"
             />
           ))}
         </div>

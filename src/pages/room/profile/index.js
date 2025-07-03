@@ -123,13 +123,13 @@ export default function Profile({
                 handleLogEvent("profile_footer_room_clicked");
                 router.push("/room/profile");
               }}
-              className="cursor-pointer mt-2 p-0 rounded-full ring-2 w-[100px] h-[100px] ring-menu-text-selected"
+              className="cursor-pointer mt-2 p-0 rounded-full ring-2 w-[100px] h-[100px] ring-menu-text-selected flex items-center justify-center"
             >
               <UserAvatar 
                 user={session.user} 
-                size={100} 
-                className="w-24 h-24"
-                fallbackClassName="w-24 h-24"
+                size={96} 
+                className="rounded-full"
+                fallbackClassName="rounded-full"
               />
             </div>
             <div className="flex w-full justify-between mb-8">

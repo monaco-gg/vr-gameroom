@@ -1,5 +1,5 @@
 import { TicketIcon } from "@components/Icons/TicketIcon";
-import { Avatar } from "@nextui-org/react";
+import UserAvatar from "@components/UserAvatar";
 import Image from "next/legacy/image";
 
 export const RANKING_TYPE = {
@@ -61,11 +61,11 @@ const RankingListItem = ({
         </div>
       )}
 
-      <Avatar
-        showFallback
-        src={avatarSrc}
-        alt="Avatar"
-        fallback={<p className="text-2xl">{name[0].toUpperCase()}</p>}
+      <UserAvatar
+        user={{ name: name, image: avatarSrc }}
+        size={32}
+        className="rounded-full"
+        fallbackClassName="rounded-full"
       />
 
       <div className="flex flex-col grow">
