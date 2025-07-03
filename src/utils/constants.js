@@ -113,6 +113,26 @@ export const contentModalOnboarding = {
   },
 };
 
+export const contentModalRewardCoin = {
+  1: {
+    label: (
+      <StepLabel
+        currentStep={1}
+        Icon={MonacoinIcon}
+        totalSteps={1}
+        text="Parabéns!"
+      />
+    ),
+    title: "Você ganhou uma ficha!",
+    texts: [
+      "Use-as para começar a explorar e se divertir com a nossa seleção de jogos.",
+      "Acumule pontos jogando, quanto mais você joga, maiores são seus ganhos.",
+    ],
+    buttonText: "Avançar",
+    buttonColor: "primary",
+  },
+};
+
 /**
  * Content for the renew coins modal.
  * @constant {Object}

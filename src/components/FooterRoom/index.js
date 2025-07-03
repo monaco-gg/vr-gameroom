@@ -8,6 +8,7 @@ import { StoreSolidIcon } from "@components/Icons/StoreSolidIcon";
 import { TrophyIcon } from "@components/Icons/TrophyIcon";
 import { TrophySolidIcon } from "@components/Icons/TrophySolidIcon";
 import { MenuItem } from "@components/MenuItem";
+import UserAvatar from "@components/UserAvatar";
 import { useFirebaseAnalytics } from "@utils/firebase";
 import Image from "next/legacy/image";
 import { usePathname } from "next/navigation";
@@ -83,7 +84,7 @@ export default function FooterRoom({ session }) {
               isNew={item.isNew}
             />
           ))}
-        {session?.user?.image ? (
+        {session?.user ? (
           <div
             onClick={() => {
               handleLogEvent("profile_footer_room_clicked");
@@ -93,13 +94,11 @@ export default function FooterRoom({ session }) {
               pathname === "/room/profile" ? "ring-menu-ring-selected" : "ring-menu-ring"              
             }`}
           >
-            <Image
-              width={36}
-              height={36}
-              className={`rounded-full m-0 p-0`}
-              alt="avatar"
-              priority
-              src={session?.user?.image}
+            <UserAvatar 
+              user={session.user} 
+              size={36} 
+              className="rounded-full m-0 p-0"
+              fallbackClassName="rounded-full m-0 p-0"
             />
           </div>
         ) : (

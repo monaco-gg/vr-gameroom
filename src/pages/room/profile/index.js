@@ -1,6 +1,7 @@
 import CoinsAvailable from "@components/CoinsAvailable";
 import RoomLayout from "@components/Layout/RoomLayout";
 import TicketsAvailable from "@components/TicketsAvailable";
+import UserAvatar from "@components/UserAvatar";
 import { GlobalContext } from "@contexts/GlobalContext";
 import { useFormValidation } from "@hooks/useFormValidation";
 import { Button, Divider, Input, Switch, cn } from "@nextui-org/react";
@@ -117,28 +118,20 @@ export default function Profile({
         </div>
         {session && session.user && globalState.user && (
           <div className="flex flex-col items-center">
-            {session.user.image && (
-              <div
-                onClick={() => {
-                  handleLogEvent("profile_footer_room_clicked");
-                  router.push("/room/profile");
-                }}
-                className={`cursor-pointer mt-2 p-0 rounded-full ring-2 w-[100px] h-[100px] ring-menu-text-selected {`}
-              >
-                <Image
-                  width={100}
-                  height={100}
-                  src={session.user.image}
-                  alt="Avatar do Usuário"
-                  className="w-24 h-24 rounded-full object-cover"
-                  priority
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                  }}
-                />
-              </div>
-            )}
+            <div
+              onClick={() => {
+                handleLogEvent("profile_footer_room_clicked");
+                router.push("/room/profile");
+              }}
+              className="cursor-pointer mt-2 p-0 rounded-full ring-2 w-[100px] h-[100px] ring-menu-text-selected"
+            >
+              <UserAvatar 
+                user={session.user} 
+                size={100} 
+                className="w-24 h-24"
+                fallbackClassName="w-24 h-24"
+              />
+            </div>
             <div className="flex w-full justify-between mb-8">
               <div className="flex flex-col items-start">
                 <span className="text-left text-medium text-gray-400">
