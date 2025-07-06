@@ -9,6 +9,10 @@ import { Card } from "@nextui-org/react";
 import ProductCard from "@components/Card/ProductCard";
 import AdRewardFullScreeen from "@components/Ads/AdRewardFullScreeen";
 import { GlobalContext } from "@contexts/GlobalContext";
+import { MonacoinIcon } from "@components/Icons/MonacoinIcon";
+
+import  ModalNotification from "@components/Modal/ModalNotification";
+import { contentModalRewardCoin } from "@utils/constants";
 
 export default function Store({ initialProducts, initialCouponCode }) {
   const { data: session } = useSession();
@@ -17,27 +21,39 @@ export default function Store({ initialProducts, initialCouponCode }) {
   const [couponCode, setCouponCode] = useState(initialCouponCode);
   const [couponData, setCouponData] = useState(null);
 
+  const [showModal, setShowModal] = useState(false);
+  const [totalSteps, setTotalSteps] = useState(0);
+  const [modalContent, setModalContent] = useState({});
+
   const [open, setOpen] = useState(false);
 
   // Verifica se os anúncios estão habilitados
   const isGoogleAdsEnabled = (() => {
     const adDisabled = process.env.NEXT_PUBLIC_GOOGLE_AD_DISABLED;
     if (adDisabled === undefined || adDisabled === null) {
-      console.log('⚠️ NEXT_PUBLIC_GOOGLE_AD_DISABLED não está definida. O componente de vídeo NÃO será exibido.');
+      console.log(
+        "⚠️ NEXT_PUBLIC_GOOGLE_AD_DISABLED não está definida. O componente de vídeo NÃO será exibido."
+      );
       return false;
     }
     if (adDisabled === "true") {
-      console.log('🚫 NEXT_PUBLIC_GOOGLE_AD_DISABLED=true. O componente de vídeo NÃO será exibido.');
+      console.log(
+        "🚫 NEXT_PUBLIC_GOOGLE_AD_DISABLED=true. O componente de vídeo NÃO será exibido."
+      );
       return false;
     }
     if (adDisabled === "false") {
-      console.log('✅ NEXT_PUBLIC_GOOGLE_AD_DISABLED=false. O componente de vídeo SERÁ exibido.');
+      console.log(
+        "✅ NEXT_PUBLIC_GOOGLE_AD_DISABLED=false. O componente de vídeo SERÁ exibido."
+      );
       return true;
     }
-    console.log(`⚠️ NEXT_PUBLIC_GOOGLE_AD_DISABLED com valor inesperado ('${adDisabled}'). O componente de vídeo NÃO será exibido.`);
+    console.log(
+      `⚠️ NEXT_PUBLIC_GOOGLE_AD_DISABLED com valor inesperado ('${adDisabled}'). O componente de vídeo NÃO será exibido.`
+    );
     return false;
   })();
-   
+
   const handleReward = async () => {
     console.log("🎉 Recompensa liberada!");
 
@@ -52,18 +68,27 @@ export default function Store({ initialProducts, initialCouponCode }) {
 
       if (response.ok) {
         console.log("✅ Ficha adicionada:", data);
-        console.log("💰 Fichas antes da atualização:", globalState?.user?.coinsAvailable);
-        
+        console.log(
+          "💰 Fichas antes da atualização:",
+          globalState?.user?.coinsAvailable
+        );
+
         // Atualiza o estado global com as novas fichas
         if (globalState?.user && data.coinsAvailable !== undefined) {
           updateGlobalState({
             user: {
               ...globalState.user,
-              coinsAvailable: data.coinsAvailable
-            }
+              coinsAvailable: data.coinsAvailable,
+            },
           });
-          console.log("🔄 Estado global atualizado com novas fichas:", data.coinsAvailable);
-          console.log("✅ Componente CoinsAvailable será atualizado automaticamente!");
+          console.log(
+            `🔄 Estado global atualizado com novas fichas: ${data.coinsAvailable} | ✅ Componente CoinsAvailable será atualizado automaticamente!`
+          );
+          
+          setTotalSteps(1);
+          setModalContent(contentModalRewardCoin);
+          setShowModal(true);
+
         } else {
           console.warn("⚠️ Não foi possível atualizar o estado global");
         }
@@ -78,7 +103,9 @@ export default function Store({ initialProducts, initialCouponCode }) {
   const handleClose = (errorOccurred = false) => {
     setOpen(false);
     if (errorOccurred) {
-      console.log("[AdReward] Ocorreu um erro ao exibir o anúncio recompensado.");
+      console.log(
+        "[AdReward] Ocorreu um erro ao exibir o anúncio recompensado."
+      );
     } else {
       console.log("[AdReward] Modal fechado normalmente.");
     }
@@ -164,18 +191,20 @@ export default function Store({ initialProducts, initialCouponCode }) {
           {isGoogleAdsEnabled && (
             <div>
               <Card className="p-6 mb-8 bg-gray-900  rounded-lg shadow-lg">
-                <h3 className="text-lg font-bold mb-3 text-white drop-shadow-md select-none">
-                  Assista e Ganhe Vidas! 💥
+                <h3 className="text-lg font-bold mb-3 text-white drop-shadow-md select-none flex items-center gap-2">
+                  Assista e Ganhe! <MonacoinIcon size={18} layout="fixed" />
                 </h3>
 
                 <p className="text-sm text-gray-400  mb-6 select-none">
                   Assista ao vídeo até o final e desbloqueie{" "}
-                  <strong>vidas extras</strong> para continuar jogando! 🕹️✨
+                  <strong>fichas extras</strong> para continuar jogando! 🕹️🎮
                 </p>
 
                 <button
                   onClick={() => {
-                    console.log("🎬 Botão 'Assistir Vídeo' clicado, abrindo modal...");
+                    console.log(
+                      "🎬 Botão 'Assistir Vídeo' clicado, abrindo modal..."
+                    );
                     setOpen(true);
                   }}
                   className="px-5 py-2 bg-success-600 hover:bg-success-700 rounded-md text-white font-semibold transition"
@@ -201,6 +230,14 @@ export default function Store({ initialProducts, initialCouponCode }) {
               />
             ))}
           </div>
+
+          {showModal && (
+            <ModalNotification
+              totalSteps={totalSteps}
+              stepContent={modalContent}
+              onClose={() => setShowModal(false)}
+            />
+          )}
         </div>
       </RoomLayout>
     </>
@@ -247,12 +284,12 @@ export async function getServerSideProps(context) {
 //   const [couponData, setCouponData] = useState(null);
 
 //   const [open, setOpen] = useState(false);
-   
+
 //   const handleReward = async () => {
 //   console.log("🎉 Recompensa liberada!");
 
 //   try {
-       
+
 //     const response = await fetch("/api/users/reward-coin", {
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
@@ -262,7 +299,7 @@ export async function getServerSideProps(context) {
 //     const data = await response.json();
 
 //     if (response.ok) {
-//       alert("✅ Ficha adicionada: chamando callback", data);      
+//       alert("✅ Ficha adicionada: chamando callback", data);
 //     } else {
 //       alert("⚠️ Erro ao adicionar ficha:", data.message);
 //     }
@@ -371,7 +408,7 @@ export async function getServerSideProps(context) {
 //                 open={open}
 //                 onClose={() => setOpen(false)}
 //                 onReward={() => handleReward()}
-//                 videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"                
+//                 videoSrc="https://www.w3schools.com/html/mov_bbb.mp4"
 //               />
 //             </Card>
 //           </div>

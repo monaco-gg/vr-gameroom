@@ -51,7 +51,6 @@ const ModalNotification = ({ totalSteps, stepContent, onClose }) => {
                   radius="md"
                   key={index}
                   color={button.color || "primary"}
-                  onClick={button.onClick}
                   onPress={button.onClick}
                   className={button.className}
                 >
@@ -62,7 +61,6 @@ const ModalNotification = ({ totalSteps, stepContent, onClose }) => {
               className="w-full mb-4"
               radius="md"
               color={stepContent[currentStep].buttonColor || "default"}
-              onClick={nextStep}
               onPress={nextStep}
             >
               {stepContent[currentStep].buttonText}

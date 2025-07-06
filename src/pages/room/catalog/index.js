@@ -38,7 +38,7 @@ export default function Catalog({
 
       const isFirstLogin = !localStorage.getItem(isFirstLoginKey);
       const specialOfferShown = localStorage.getItem(specialOfferShownKey);
-
+      
       if (isFirstLogin) {
         localStorage.setItem(isFirstLoginKey, today.toString());
         setTotalSteps(3);

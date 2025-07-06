@@ -1,4 +1,5 @@
 import Footer from "@components/Footer";
+import UserAvatar from "@components/UserAvatar";
 import { useFormValidation } from "@hooks/useFormValidation";
 import { Button, Input, Link } from "@nextui-org/react";
 import request from "@utils/api";
@@ -106,18 +107,14 @@ export default function PersonalInformation({ callbackUrl }) {
 
       <main className="flex flex-col items-center justify-center flex-grow">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px] p-10">
-          {session && session.user && session.user.image && (
+          {session && session.user && (
             <div className="flex flex-col items-center">
-              <Image
-                src={session.user.image}
-                alt="Avatar do Usuário"
-                width={96}
-                height={96}
+              <UserAvatar 
+                user={session.user} 
+                size={96} 
                 className="rounded-full object-cover mb-4"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
+                fallbackClassName="rounded-full mb-4"
+              />
               <h4 className="font-inter text-center text-3xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-white custom-animation">
                 Olá, {session.user.name}!
               </h4>

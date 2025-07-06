@@ -25,7 +25,9 @@
         "menu-ring": "#fff",
         "menu-ring-selected": "#e7dd12",
 
-        "rewards": "#06B4C3"
+        "rewards": "#06B4C3",
+        "avatar-fallback": "#000",
+        "avatar-fallback-text": "#fff"
       }
     }
   },
